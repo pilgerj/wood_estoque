@@ -1,0 +1,30 @@
+<persistence
+	xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0"> 
+	<!-- unidade de persistencia -->
+	<persistence-unit name="db">
+	<!-- Implementação do JPA, no nosso	caso Hibernate -->
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<!--Aqui são listadas todas as entidades -->
+		<class>domain.Ferramenta</class>
+		<class>domain.Gaveta</class>
+		<class>domain.Operacional</class>
+		<class>domain.Compra</class>
+		<class>domain.Venda</class>
+		<class>domain.Consumo</class>
+			<properties>
+			<!-- Propriedades JDBC -->
+			<property name="connection.driver_class" value="org.h2.Driver" />
+			<property name="hibernate.connection.url"
+				value="jdbc:h2:/home/joaosantos/eclipse/WoodEstoque/src/main/java/lib/db" />
+			<property name="javax.persistence.jdbc.user" value="joao" />
+			<property name="javax.persistence.jdbc.password" value="1" />
+			<!--Configurações específicas do Hibernate -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>
